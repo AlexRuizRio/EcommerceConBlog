@@ -37,18 +37,11 @@ class CarritoController extends Controller
 
 
     public function mostrar()
-    {
-        $carrito = session()->get('carrito', []);
-
-        $total = 0;
-        foreach ($carrito as $item) {
-            $total += $item['cantidad'] * $item['producto']->precio;
-        }
-
-        session()->put('total', $total);
-
-        return view('carritomostrar', compact('carrito', 'total'));
-    }
+{
+    $carrito = session()->get('carrito', []);
+    
+    return view('carritomostrar', compact('carrito'));
+}
 
     public function eliminar(Request $request, $productoId)
     {
@@ -60,6 +53,18 @@ class CarritoController extends Controller
         return redirect()->route('carritomostrar');
 
     }
-
+    public function actualizarCarrito($productoId, $cantidad)
+    {
+        if ($cantidad <= 0) {
+            if (isset($this->carrito[$productoId])) {
+                unset($this->carrito[$productoId]);
+                $this->emit('eliminarProducto', $productoId);
+            }
+        } else {
+            $this->carrito[$productoId]['cantidad'] = $cantidad;
+        }
+    
+        session()->put('carrito', $this->carrito);
+    }
 
 }

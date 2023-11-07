@@ -47,7 +47,7 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html"><strong>Inicio</strong>
+                <a class="nav-link" href="{{ route('/') }}"><strong>Inicio</strong>
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
@@ -55,17 +55,10 @@
                 <a class="nav-link" href="{{ route('curso') }}"><strong>Cursos</strong></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="checkout.html"><strong>Plantillas</strong></a>
+                <a class="nav-link" href="{{ route('plantilla') }}"><strong>Plantillas</strong></a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><strong>Ebooks</strong></a>
-              
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="about.html">Programacion</a>
-                    <a class="dropdown-item" href="blog.html">Informatica</a>
-                    <a class="dropdown-item" href="testimonials.html">Hacking</a>
-                    <a class="dropdown-item" href="terms.html">Redes</a>
-                </div>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('ebook') }}"><strong>Ebook</strong></a>
               </li>
               <li class="nav-item account-item">
                 <a class="nav-link" href="login.html"><strong>Cuenta</strong></a>
