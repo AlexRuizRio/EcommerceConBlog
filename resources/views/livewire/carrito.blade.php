@@ -33,8 +33,7 @@
                                                                </div>
                                                                <div class="col-md-4 quantity">
                                                                  <label for="quantity_{{ $productoId }}">Cantidad:</label>
-                                                                 <input id="quantity_{{ $productoId }}" wire:model="carrito.{{ $productoId }}.cantidad" type="number" class="form-control quantity-input" wire:change="actualizarCantidad({{ $productoId }}, $event.target.value)">
-                                                             
+                                                                 <input id="quantity_{{ $productoId }}" wire:model="carrito.{{ $productoId }}.cantidad" type="number" class="form-control quantity-input" wire:change="actualizarCantidad({{ $productoId }}, $event.target.value)">                                                          
                                                                  @if ($carrito[$productoId]['cantidad'] == 0)
                                                                      <form action="{{ route('eliminar.producto', ['productoId' => $productoId]) }}" method="POST">
                                                                          @csrf
@@ -59,8 +58,8 @@
                           
                             <div class="col-md-12 col-lg-4">
                                  <div class="summary">
-                                      <h3>Summary</h3>
-                                      <div class="summary-item"><span class="text">Precio</span><span class="price">$360</span></div>
+                                      <h3></h3>
+                                      <div class="summary-item"><span class="text">Precio</span><span class="price">€</span></div>
                                       <div class="summary-item"><span class="text">Descuento</span><span class="price">$0</span></div>
                                       <div class="summary-item"><span class="text">Envio</span><span class="price">$0</span></div>
                                       <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
@@ -86,13 +85,4 @@
 @endif
 @livewireScripts
 
-<script>
-     document.addEventListener('livewire:load', function () {
-         Livewire.on('confirmarEliminacion', params => {
-             if (confirm('¿Seguro que quieres eliminar este producto?')) {
-                 Livewire.emit('eliminarProducto', params.productoId);
-             }
-         });
-     });
- </script>
 </div>

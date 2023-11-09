@@ -21,38 +21,25 @@ class Carrito extends Component
         
         $carrito = session()->get('carrito', []);
     
-        if ($nuevaCantidad == 0) {
-            $this->confirmarEliminacion($productoId);
-            
-        } else {
+        
             $carrito[$productoId]['cantidad'] = $nuevaCantidad;
             
             session()->put('carrito', $carrito);
             session()->save(); 
-        }
-    }
-    
-    public function confirmarEliminacion($productoId)
-    {
         
-        $this->dispatchBrowserEvent('confirmarEliminacion', ['productoId' => $productoId]);
-        //dd('El producto con el ID ' . $productoId . ' será eliminado.');
     }
-    
-    public function eliminarProducto($productoId)
-    {
-       
+    public function calcularPrecio()
+{
+    $total = 0;
 
-        $carrito = session()->get('carrito', []);
-    
-        if (isset($carrito[$productoId])) {
-            unset($carrito[$productoId]);
-            session()->put('carrito', $carrito);
-            session()->save(); 
-        }
-    
-       
+    foreach ($this->carrito as $productoId => $item) {
+        $subtotal = $item['producto']['precio'] * $item['cantidad'];
+        $total += $subtotal;
     }
+
+    return $total;
+}
+    
     public function render()
     {
         return view('livewire.carrito', [
