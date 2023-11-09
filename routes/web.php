@@ -22,3 +22,4 @@ Route::get('plantilla',[ProductoController::class, 'plantilla' ])->name('plantil
 Route::get('producto/detalle/{nombre}', [ProductoController::class, 'show'])->name('detalleproducto');
 Route::get('carrito', [CarritoController::class, 'mostrar'])->name('carritomostrar');
 Route::post('agregarcarrito', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+Route::post('/eliminar-producto/{productoId}', [CarritoController::class, 'eliminarProducto'])->name('eliminar.producto');

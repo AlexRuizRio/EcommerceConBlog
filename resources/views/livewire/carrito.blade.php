@@ -33,8 +33,14 @@
                                                                </div>
                                                                <div class="col-md-4 quantity">
                                                                  <label for="quantity_{{ $productoId }}">Cantidad:</label>
-                                                                 <input id="quantity_{{ $productoId }}" wire:model="carrito.{{ $productoId }}.cantidad" type="number" class="form-control quantity-input" @if($item['cantidad'] == 0) onclick="confirmarEliminacion({{ $productoId }})" @endif>
-
+                                                                 <input id="quantity_{{ $productoId }}" wire:model="carrito.{{ $productoId }}.cantidad" type="number" class="form-control quantity-input" wire:change="actualizarCantidad({{ $productoId }}, $event.target.value)">
+                                                             
+                                                                 @if ($carrito[$productoId]['cantidad'] == 0)
+                                                                     <form action="{{ route('eliminar.producto', ['productoId' => $productoId]) }}" method="POST">
+                                                                         @csrf
+                                                                         <button type="submit">Eliminar Producto</button>
+                                                                     </form>
+                                                                 @endif
                                                              </div>
                                                             <div class="col-md-3 price">
                                                                  <span>{{$item['producto']['precio']- ($item['producto']['precio'] * $item['producto']['descuento']/100)}}€</span>
@@ -81,12 +87,12 @@
 @livewireScripts
 
 <script>
-    document.addEventListener('livewire:load', function () {
-        Livewire.on('confirmarEliminacion', params => {
-            if (confirm('¿Seguro que quieres eliminar este producto?')) {
-                Livewire.emit('eliminarProducto', params.productoId);
-            }
-        });
-    });
-</script>
+     document.addEventListener('livewire:load', function () {
+         Livewire.on('confirmarEliminacion', params => {
+             if (confirm('¿Seguro que quieres eliminar este producto?')) {
+                 Livewire.emit('eliminarProducto', params.productoId);
+             }
+         });
+     });
+ </script>
 </div>

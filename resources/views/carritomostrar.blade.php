@@ -13,4 +13,5 @@
          @livewire('carrito', ['carrito' => $carrito]) 
         
         </div>
+      
 </x-layouts.app>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use Illuminate\Support\Facades\Session;
+
 
 class CarritoController extends Controller
 {
@@ -43,16 +45,18 @@ class CarritoController extends Controller
     return view('carritomostrar', compact('carrito'));
 }
 
-    public function eliminar(Request $request, $productoId)
-    {
+public function eliminarProducto($productoId)
+{
+    $carrito = Session::get('carrito', []);
 
-
-        session()->forget("carrito.$productoId");
-
-
-        return redirect()->route('carritomostrar');
-
+    if (isset($carrito[$productoId])) {
+        unset($carrito[$productoId]);
+        Session::put('carrito', $carrito);
+        Session::save(); 
     }
+
+    return redirect()->back();
+}
     public function actualizarCarrito($productoId, $cantidad)
     {
         if ($cantidad <= 0) {
