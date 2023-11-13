@@ -29,7 +29,7 @@ class Carrito extends Component
         
     }
     public function calcularPrecio()
-{
+    {
     $total = 0;
 
     foreach ($this->carrito as $productoId => $item) {
@@ -38,7 +38,33 @@ class Carrito extends Component
     }
 
     return $total;
-}
+    }
+
+    public function calcularDescuento()
+    {
+    $totaldescuento = 0;
+
+    foreach ($this->carrito as $productoId => $item) {
+        $subtotal = ($item['producto']['precio'] * $item['producto']['descuento']/100) * $item['cantidad'];
+        $totaldescuento += $subtotal;
+    }
+
+    return $totaldescuento;
+    }
+
+    public function calcularPrecioFinal()
+    {
+    $totalfinal = 0;
+
+    foreach ($this->carrito as $productoId => $item) {
+    
+  
+    $subtotal = ($item['producto']['precio']- ($item['producto']['precio'] * $item['producto']['descuento']/100))* $item['cantidad'];
+        $totalfinal += $subtotal;
+    }
+
+    return $totalfinal;
+    }
     
     public function render()
     {

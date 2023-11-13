@@ -33,7 +33,7 @@
                                                                </div>
                                                                <div class="col-md-4 quantity">
                                                                  <label for="quantity_{{ $productoId }}">Cantidad:</label>
-                                                                 <input id="quantity_{{ $productoId }}" wire:model="carrito.{{ $productoId }}.cantidad" type="number" class="form-control quantity-input" wire:change="actualizarCantidad({{ $productoId }}, $event.target.value)">                                                          
+                                                                 <input id="quantity_{{ $productoId }}" wire:model="carrito.{{ $productoId }}.cantidad" type="number" class="form-control quantity-input" wire:change="actualizarCantidad({{ $productoId }}, $event.target.value)" min="0">                                                          
                                                                  @if ($carrito[$productoId]['cantidad'] == 0)
                                                                      <form action="{{ route('eliminar.producto', ['productoId' => $productoId]) }}" method="POST">
                                                                          @csrf
@@ -57,14 +57,14 @@
      
                           
                             <div class="col-md-12 col-lg-4">
-                                 <div class="summary">
-                                      <h3></h3>
-                                      <div class="summary-item"><span class="text">Precio</span><span class="price">€</span></div>
-                                      <div class="summary-item"><span class="text">Descuento</span><span class="price">$0</span></div>
-                                      <div class="summary-item"><span class="text">Envio</span><span class="price">$0</span></div>
-                                      <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
-                                      <button type="button" class="btn btn-primary btn-lg btn-block custom-button">Realizar pedido</button>
-                                 </div>
+                              <div class="summary">
+                                   <h3>Resumen</h3>
+                                   <div class="summary-item"><span class="text">Precio </span><span class="price"><del>{{ $this->calcularPrecio() }}€</del></span></div>
+                                   <div class="summary-item"><span class="text">Descuento</span><span class="price">-{{$this->calcularDescuento() }}€</span></div>
+                                   <div class="summary-item"><span class="text">Envio</span><span class="price">0€</span></div>
+                                   <div class="summary-item"><span class="text">Total</span><span class="price">{{$this->calcularPrecioFinal()}}€</span></div>
+                                   <button type="button" class="btn btn-primary btn-lg btn-block custom-button">Realizar pedido</button>
+                              </div>
                             </div>
                        </div> 
                   </div>

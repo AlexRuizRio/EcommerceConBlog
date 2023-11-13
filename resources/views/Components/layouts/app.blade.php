@@ -40,18 +40,14 @@
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Mobile Store<em> Website</em></h2></a>
+          <a class="navbar-brand" href="{{ route('/') }}"><h2><em> Tienda de </em> Programacion</h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ route('/') }}"><strong>Inicio</strong>
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
+        
+              <li class="nav-item ">
                 <a class="nav-link" href="{{ route('curso') }}"><strong>Cursos</strong></a>
               </li>
               <li class="nav-item">
@@ -60,8 +56,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('ebook') }}"><strong>Ebook</strong></a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('ebook') }}"><strong>Blog</strong></a>
+              </li>
               <li class="nav-item account-item">
-                <a class="nav-link" href="login.html"><strong>Cuenta</strong></a>
+                <a class="nav-link" href="login.html">
+                  <i class="fa fa-user" style="font-size:24px"></i>
+                </a>
               </li>
               <li class="account-item nav-item">
                 <a class="nav-link" href="{{ route('carritomostrar') }}">
