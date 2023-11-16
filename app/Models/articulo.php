@@ -5,32 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class articulo extends Model
+class Articulo extends Model
 {
-    use HasFactory;
+    public $table = 'articulos';
 
     protected $fillable = [ 'id', 'titulo', 'contenido', 'fecha_publicacion', 'id_autor'];
     
 
-   
-        public function autor()
+    //Falta esta relacion
+        public function autor(): \Illuminate\Database\Eloquent\Relations\BelongsTo
         {
             return $this->belongsTo(Usuario::class, 'id_autor');
         }
     
-        public function comentarios()
+        public function comentarios(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
             return $this->hasMany(Comentario::class, 'id_articulo');
         }
     
-        public function categorias()
+        public function categorias(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
-            return $this->belongsToMany(Categoria::class, 'articulo_categoria', 'id_articulo', 'id_categoria');
+            return $this->HasMany(Articulos_ategoria::class, 'articulo_id');
         }
     
-        public function etiquetas()
+        public function etiquetas(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
-            return $this->belongsToMany(Etiqueta::class, 'articulo_etiqueta', 'id_articulo', 'id_etiqueta');
+            return $this->HasMany(Articulos_etiqueta::class, 'etiqueta_id');
         }
     
     
