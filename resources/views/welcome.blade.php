@@ -44,29 +44,29 @@
         </div>
     </div>
     <!-- Banner Ends Here -->
-
+    <<!--
     <div class="request-form">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <h4>Request a call back right now ?</h4>
-            <span>Mauris ut dapibus velit cras interdum nisl ac urna tempor mollis.</span>
+            <h4>Quieres mas informacion de nuestros productos? </h4>
+            <span>No dudes en contactar con nosotros </span>
           </div>
           <div class="col-md-4">
-            <a href="contact.html" class="border-button">Contact Us</a>
+            <a href="" class="border-button">Contact Us</a>
             
           </div>
         </div>
       </div>
     </div>
-
+  -->>
     <div class="services">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Featured <em>Products</em></h2>
-              <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
+              <h2>Cursos <em>Destacados</em></h2>
+              <span>Aprovecha los cursos con los mejores descuentos </span>
             </div>
           </div>
           @foreach($productosbaratos as $productobarato)
@@ -81,10 +81,15 @@
                     <p>{{$productobarato['descripcion']}}</p>
                     <div style="display: flex;">
                         <div style="margin-right: 10px;">
-                            <a href="product-details.html" class="filled-button">Detalles</a>
+                            <a href="{{ route('detalleproducto', ['nombre' => $productobarato['nombre']]) }}" class="filled-button">Detalles</a>
                         </div>
                         <div>
-                            <a href="product-details.html" class="filled-button">Comprar</a>
+                          <form action="{{ route('carrito.agregar') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="producto_id" value="{{ $productobarato['id'] }}">
+                            <input type="hidden" name="accion" value="comprar">
+                            <button type="submit" class="filled-button">Comprar</button>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -107,10 +112,10 @@
             </div>
             <div class="col-md-6 align-self-center">
               <div class="right-content">
-                <span>Who we are</span>
-                <h2>Get to know about <em>our company</em></h2>
-                <p>Curabitur pulvinar sem a leo tempus facilisis. Sed non sagittis neque. Nulla conse quat tellus nibh, id molestie felis sagittis ut. Nam ullamcorper tempus ipsum in cursus</p>
-                <a href="about.html" class="filled-button">Read More</a>
+                <span>Quienes somos</span>
+                <h2>Conozca <em>nuestra empresa</em></h2>
+                <p>Somos una empresa donde llevamos mas de 10 años trabajando de consultores dando servicios a grandes empresas y ahora tenemos cursos con los que...</p>
+                <a href="about.html" class="filled-button">Leer mas</a>
               </div>
             </div>
           </div>
@@ -121,8 +126,8 @@
     <div class="more-info">
       <div class="container">
         <div class="section-heading">
-          <h2>Read our <em>Blog</em></h2>
-          <span>Aliquam id urna imperdiet libero mollis hendrerit</span>
+          <h2>Lea nuestro <em>Blog</em></h2>
+          <span>Muchos temas interesantes sobre cualquier tecnologia</span>
         </div>
 
         <div class="row" id="tabs">

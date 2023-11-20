@@ -34,6 +34,7 @@ a.filled-button {
 	border-radius: 30px;
 	display: inline-block;
 	transition: all 0.3s;
+	border: 2px solid #000;
 }
 
 a.filled-button:hover {
@@ -1428,6 +1429,23 @@ a.filled-buttonblack{
 .custom-button:hover {
     background-color: #fff;
     color: #c71bcd;
+}
+button.filled-button {
+	background-color: #c71bcd;
+	color: #fff;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: 12px 30px;
+	border-radius: 30px;
+	display: inline-block;
+	transition: all 0.3s;
+	
+}
+
+button.filled-button:hover {
+	background-color: #fff;
+	color: #c71bcd;
 }
 
 

@@ -34,7 +34,15 @@ class CarritoController extends Controller
 
         session()->put('carrito', $carrito);
 
+        $accion = $request->input('accion');
+
+        if ($accion === 'comprar') {
+            
+            return redirect()->route('carritomostrar');
+        }
+
         return redirect()->back()->with('success', 'Producto agregado al carrito.');
+        
     }
 
 
