@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('contenido');
             $table->date('fecha_publicacion');
             $table->unsignedBigInteger('id_autor');
+            $table->text('img');
             $table->foreign('id_autor')->references('id')->on('usuarios');
             $table->timestamps();
     });

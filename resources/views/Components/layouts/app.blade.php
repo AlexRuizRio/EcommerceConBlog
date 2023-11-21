@@ -57,7 +57,7 @@
                 <a class="nav-link" href="{{ route('ebook') }}"><strong>Ebook</strong></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('ebook') }}"><strong>Blog</strong></a>
+                <a class="nav-link" href="{{ route('blogmostrar') }}"><strong>Blog</strong></a>
               </li>
               <li class="nav-item account-item">
                 <a class="nav-link" href="login.html">

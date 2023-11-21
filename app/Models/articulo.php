@@ -9,7 +9,7 @@ class Articulo extends Model
 {
     public $table = 'articulos';
 
-    protected $fillable = [ 'id', 'titulo', 'contenido', 'fecha_publicacion', 'id_autor'];
+    protected $fillable = [ 'id', 'titulo', 'contenido', 'fecha_publicacion', 'id_autor', 'img'];
     
 
     //Falta esta relacion

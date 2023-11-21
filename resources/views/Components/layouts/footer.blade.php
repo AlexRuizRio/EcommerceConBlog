@@ -21,11 +21,11 @@
             </ul>
           </div>
           <div class="col-md-3 footer-item">
-            <h4>Additional Pages</h4>
+            <h4>Paginas adicionales</h4>
             <ul class="menu-list">
-              <li><a href="#">Products</a></li>
+              <li><a href="{{ route('curso') }}">Cursos</a></li>
               <li><a href="#">About Us</a></li>
-              <li><a href="#">Blog</a></li>
+              <li><a href="{{ route('blogmostrar') }}">Blog</a></li>
               <li><a href="#">Contact Us</a></li>
               <li><a href="#">Terms</a></li>
             </ul>

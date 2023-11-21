@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\ArticuloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,7 @@ Route::get('producto/detalle/{nombre}', [ProductoController::class, 'show'])->na
 Route::get('carrito', [CarritoController::class, 'mostrar'])->name('carritomostrar');
 Route::post('agregarcarrito', [CarritoController::class, 'agregar'])->name('carrito.agregar');
 Route::post('/eliminar-producto/{productoId}', [CarritoController::class, 'eliminarProducto'])->name('eliminar.producto');
+
+//Blog
+
+Route::get('blog', [ArticuloController::class, 'index'])->name('blogmostrar');
