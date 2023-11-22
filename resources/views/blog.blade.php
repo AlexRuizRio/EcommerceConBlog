@@ -14,22 +14,24 @@
       <div class="row">
         <div class="col-md-8">
           <section class='tabs-content'>
+            @foreach($articulosArray as $articulo)
             <article id='tabs-1'>
               <img src="assets/images/blog-image-1-940x460.jpg" alt="">
-              <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
+              <h4><a href="blog-details.html">{{$articulo['titulo']}}</a></h4>
               <div style="margin-bottom:10px;">
-                <span>John Doe &nbsp;|&nbsp; 27.07.2020 10:10 &nbsp;|&nbsp; 15 comments</span>
+                <span>{{$articulo['autor']}}&nbsp;|&nbsp; {{$articulo['fecha_publicacion']}}&nbsp;|&nbsp; 0 comentarios</span>
               </div>
-              <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet.</p>
+              <p>{{$articulo['contenido']}}</p>
               <br>
               <div>
-                <a href="blog-details.html" class="filled-button">Continue Reading</a>
+                <a href="blog-details.html" class="filled-button">Continuar leyendo</a>
               </div>
             </article>
 
             <br>
             <br>
             <br>
+            @endforeach
 
             <article id='tabs-2'>
               <img src="assets/images/blog-image-2-940x460.jpg" alt="">

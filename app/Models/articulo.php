@@ -25,12 +25,12 @@ class Articulo extends Model
     
         public function categorias(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
-            return $this->HasMany(Articulos_ategoria::class, 'articulo_id');
+            return $this->HasMany(Articulos_categorias::class, 'articulo_id');
         }
     
         public function etiquetas(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
-            return $this->HasMany(Articulos_etiqueta::class, 'etiqueta_id');
+            return $this->HasMany(Articulos_etiquetas::class, 'etiqueta_id');
         }
     
     
