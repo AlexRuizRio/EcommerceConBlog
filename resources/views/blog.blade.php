@@ -16,15 +16,15 @@
           <section class='tabs-content'>
             @foreach($articulosArray as $articulo)
             <article id='tabs-1'>
-              <img src="assets/images/blog-image-1-940x460.jpg" alt="">
+              <img src="{{$articulo['img']}}" alt="">
               <h4><a href="blog-details.html">{{$articulo['titulo']}}</a></h4>
               <div style="margin-bottom:10px;">
-                <span>{{$articulo['autor']}}&nbsp;|&nbsp; {{$articulo['fecha_publicacion']}}&nbsp;|&nbsp; 0 comentarios</span>
+                <span>{{$articulo['autor']['nombre']}} {{$articulo['autor']['apellidos']}}&nbsp;|&nbsp; {{$articulo['fecha_publicacion']}}&nbsp;|&nbsp; 0 comentarios</span>
               </div>
-              <p>{{$articulo['contenido']}}</p>
+              <p>{{ \Illuminate\Support\Str::limit($articulo['contenido'], 200) }}</p>
               <br>
               <div>
-                <a href="blog-details.html" class="filled-button">Continuar leyendo</a>
+                <a href="{{ route('blogdetalle', ['nombre' => $articulo['titulo']]) }}" class="filled-button">Continuar leyendo</a>
               </div>
             </article>
 
@@ -32,54 +32,29 @@
             <br>
             <br>
             @endforeach
-
-            <article id='tabs-2'>
-              <img src="assets/images/blog-image-2-940x460.jpg" alt="">
-              <h4><a href="blog-details.html">Mauris lobortis quam id dictum dignissim</a></h4>
-              <div style="margin-bottom:10px;">
-                <span>John Doe &nbsp;|&nbsp; 27.07.2020 10:10 &nbsp;|&nbsp; 15 comments</span>
-              </div>
-              <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet</p>
-              <br>
-              <div>
-                <a href="blog-details.html" class="filled-button">Continue Reading</a>
-              </div>
-            </article>
-          </section>
         </div>
 
         <div class="col-md-4">
-            <h4 class="h4">Search</h4>
+            <h4 class="h4">Buscar</h4>
             
             <form id="search_form" name="gs" method="GET" action="#">
-              <input type="text" name="q" class="form-control form-control-lg" placeholder="type to search..." autocomplete="on">
+              <input type="text" name="q" class="form-control form-control-lg" placeholder="" autocomplete="on">
             </form>
 
             <br>
             <br>
 
-            <h4 class="h4">Recent posts</h4>
-
+            <h4 class="h4">Post recientes</h4>
+            
             <ul>
+              @foreach($articuloRecArray as $articuloRec)
                 <li>
-                    <h5 style="margin-bottom:10px;"><a href="blog-details.html">Dolorum corporis ullam, reiciendis inventore est repudiandae</a></h5>
-                    <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                    <h5 style="margin-bottom:10px;"><a href="blog-details.html">{{$articuloRec['titulo']}}</a></h5>
+                    <small><i class="fa fa-user"></i> {{$articuloRec['autor']['nombre']}} {{$articuloRec['autor']['apellidos']}}&nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{$articuloRec['fecha_publicacion']}}</small>
                 </li>
 
                 <li><br></li>
-
-                <li>
-                    <h5 style="margin-bottom:10px;"><a href="blog-details.html">Culpa ab quasi in rerum dolorum impedit expedita</a></h5>
-                    <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
-                </li>
-
-                <li><br></li>
-
-                <li>
-                  <h5 style="margin-bottom:10px;"><a href="blog-details.html">Explicabo soluta corrupti dolor doloribus optio dolorum</a></h5>
-
-                  <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
-                </li>
+               @endforeach   
             </ul>
         </div>
       </div>

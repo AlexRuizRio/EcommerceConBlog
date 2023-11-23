@@ -33,3 +33,4 @@ Route::post('/eliminar-producto/{productoId}', [CarritoController::class, 'elimi
 //Blog
 
 Route::get('blog', [ArticuloController::class, 'index'])->name('blogmostrar');
+Route::get('blog/detalle/{nombre}', [ArticuloController::class, 'show'])->name('blogdetalle');
