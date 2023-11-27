@@ -4,19 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Articulo;
 
 class ProductoController extends Controller
 {
        
     public function index()
     {
+        $articulosRecientes = Articulo::with('autor', 'comentarios', 'categorias', 'etiquetas')
+        ->orderBy('fecha_publicacion', 'desc')
+        ->limit(3)
+        ->get();
+
         $productos = Producto::all()->toArray();
         usort($productos, function($a, $b) {
             return $b['descuento'] - $a['descuento'];
         });
         $productosbaratos= array_slice($productos, 0, 3);
         
-        return view('welcome', compact('productosbaratos'));
+        return view('welcome', compact('productosbaratos', 'articulosRecientes'));
     }
 
     public function ebook()

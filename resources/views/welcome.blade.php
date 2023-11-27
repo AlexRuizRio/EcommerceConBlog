@@ -133,15 +133,15 @@
         <div class="row" id="tabs">
           <div class="col-md-4">
             <ul>
-              <li><a href='#tabs-1'>Lorem ipsum dolor sit amet, consectetur adipisicing <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-              <li><a href='#tabs-2'>Mauris lobortis quam id dictum dignissim <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
-              <li><a href='#tabs-3'>Class aptent taciti sociosqu ad litora torquent per <br> <small>John Doe &nbsp;|&nbsp; 27.07.2020 10:10</small></a></li>
+              @foreach($articulosRecientes as $articulo)
+              <li><a href='#tabs-{{$articulo['id']}}'>{{$articulo['titulo']}} <br> <small>{{$articulo['autor']['nombre']}} {{$articulo['autor']['apellidos']}} &nbsp;|&nbsp; {{$articulo['fecha_publicacion']}}</small></a></li>
+             @endforeach
             </ul>
 
             <br>
 
             <div class="text-center">
-              <a href="blog.html" class="filled-button">Read More</a>
+              <a href="{{ route('blogmostrar') }}" class="filled-button">Leer mas </a>
             </div>
 
             <br>
@@ -149,22 +149,13 @@
 
           <div class="col-md-8">
             <section class='tabs-content'>
-              <article id='tabs-1'>
-                <img src="assets/images/blog-image-1-940x460.jpg" alt="">
-                <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></h4>
-                <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet.</p>
+              @foreach($articulosRecientes as $articulo)
+              <article id='tabs-{{$articulo['id']}}'>
+                <img src="{{$articulo['img']}}" alt="">
+                <h4><a href="{{ route('blogdetalle', ['nombre' => $articulo['titulo']]) }}">{{$articulo['titulo']}}</a></h4>
+                <p>{{ \Illuminate\Support\Str::limit($articulo['contenido'], 200) }}</p>
               </article>
-              <article id='tabs-2'>
-                <img src="assets/images/blog-image-2-940x460.jpg" alt="">
-                <h4><a href="blog-details.html">Mauris lobortis quam id dictum dignissim</a></h4>
-                <p>Sed ut dolor in augue cursus ultrices. Vivamus mauris turpis, auctor vel facilisis in, tincidunt vel diam. Sed vitae scelerisque orci. Nunc non magna orci. Aliquam commodo mauris ante, quis posuere nibh vestibulum sit amet</p>
-              </article>
-              <article id='tabs-3'>
-                <img src="assets/images/blog-image-3-940x460.jpg" alt="">
-                <h4><a href="blog-details.html">Class aptent taciti sociosqu ad litora torquent per</a></h4>
-                <p>Mauris lobortis quam id dictum dignissim. Donec pellentesque erat dolor, cursus dapibus turpis hendrerit quis. Suspendisse at suscipit arcu. Nulla sed erat lectus. Nulla facilisi. In sit amet neque sapien. Donec scelerisque mi at gravida efficitur. Nunc lacinia a est eu malesuada. Curabitur eleifend elit sapien, sed pulvinar orci luctus eget. 
-                </p>
-              </article>
+              @endforeach
             </section>
           </div>
         </div>

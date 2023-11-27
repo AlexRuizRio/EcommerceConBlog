@@ -7,7 +7,10 @@ use App\Models\Articulo;
 
 class ArticuloController extends Controller
 {
-    public function index()
+
+
+
+    public function mostarBlog()
     {
         $articulos = Articulo::with('autor', 'comentarios', 'categorias', 'etiquetas')->get();
         $articulosRecientes = Articulo::with('autor', 'comentarios', 'categorias', 'etiquetas')
