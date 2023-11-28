@@ -26,7 +26,7 @@
               <li><a href="{{ route('curso') }}">Cursos</a></li>
               <li><a href="#">About Us</a></li>
               <li><a href="{{ route('blogmostrar') }}">Blog</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="{{ route('contacto') }}">Contacta</a></li>
               <li><a href="#">Terms</a></li>
             </ul>
           </div>

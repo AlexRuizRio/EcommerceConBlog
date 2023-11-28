@@ -18,6 +18,10 @@ use App\Http\Controllers\ArticuloController;
 
 Route::get('/', [ProductoController::class, 'index'])->name('/');
 
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+
 //PRODUCTOS 
 
 Route::get('curso',[ProductoController::class, 'curso' ])->name('curso');

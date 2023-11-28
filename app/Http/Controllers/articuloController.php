@@ -8,8 +8,6 @@ use App\Models\Articulo;
 class ArticuloController extends Controller
 {
 
-
-
     public function mostarBlog()
     {
         $articulos = Articulo::with('autor', 'comentarios', 'categorias', 'etiquetas')->get();
