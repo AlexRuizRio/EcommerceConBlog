@@ -126,7 +126,7 @@
     <div class="more-info">
       <div class="container">
         <div class="section-heading">
-          <h2>Lea nuestro <em>Blog</em></h2>
+          <h2>Nuestro <em>Blog</em></h2>
           <span>Muchos temas interesantes sobre cualquier tecnologia</span>
         </div>
 

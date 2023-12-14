@@ -8,7 +8,7 @@ use App\Models\Articulo;
 class ArticuloController extends Controller
 {
 
-    public function mostarBlog()
+    public function mostrarBlog()
     {
         $articulos = Articulo::with('autor', 'comentarios', 'categorias', 'etiquetas')->get();
         $articulosRecientes = Articulo::with('autor', 'comentarios', 'categorias', 'etiquetas')

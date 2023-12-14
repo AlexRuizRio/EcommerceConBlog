@@ -84,12 +84,22 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 
-     
+   <!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<!-- jQuery UI CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<!-- jQuery UI JS -->
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+
     <!-- Additional Scripts -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/owl.js') }}"></script>
     <script src="{{ asset('assets/js/slick.js') }}"></script>
-    <script src="{{ asset('assets/js/accordions.js') }}"></script>
+  
   
 
     <script language = "text/Javascript"> 
