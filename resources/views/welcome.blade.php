@@ -1,6 +1,4 @@
 <x-layouts.app>
-    <h1> Actualizacion de archivos</h1>
-
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     <div class="main-banner header-text" id="top">
