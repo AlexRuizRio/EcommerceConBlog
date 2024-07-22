@@ -44,10 +44,11 @@ Este proyecto es una aplicación de e-commerce con funcionalidades de blog. Los 
 ```bash
 git clone https://github.com/tu-usuario/ecommerce-con-blog.git
 cd ecommerce-con-blog
+```
 Instalar dependencias de PHP
-bash
-Copiar código
+```bash
 composer install
+```
 Instalar dependencias de JavaScript
 bash
 Copiar código
